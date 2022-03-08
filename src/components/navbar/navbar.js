@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { debounce } from "../../utilities/debounce";
 import { animateScroll } from "react-scroll";
+import { saveAs } from "file-saver";
 import {
   LogoWrapper,
   Logo,
@@ -46,6 +47,10 @@ const Navbar = () => {
   const handleToggle = () => {
     setToggle(false);
     setPrevScrollPos(0);
+  };
+
+  const saveFile = () => {
+    saveAs("cv.pdf", "example.pdf");
   };
 
   return (
@@ -97,7 +102,9 @@ const Navbar = () => {
           >
             Contact
           </NavLink>
-          <Resume>Resume</Resume>
+          <Resume onClick={saveFile} download>
+            Resume
+          </Resume>
         </NavLinkWrapper>
         <Bars onClick={handleClick}></Bars>
       </Nav>
@@ -121,7 +128,9 @@ const Navbar = () => {
         <NavLink to="contact" spy={true} smooth={true} onClick={handleToggle}>
           Contact
         </NavLink>
-        <Resume>Resume</Resume>
+        <Resume href="./" download="ResumeOfficial.pdf">
+          Resume
+        </Resume>
       </MobileMenu>
     </>
   );

@@ -67,6 +67,7 @@ export const Resume = styled.button`
   cursor: pointer;
   transition: 0.3s ease;
   font-weight: bold;
+  text-decoration: none;
 
   :hover {
     border: 1.5px solid #ff10f0;
